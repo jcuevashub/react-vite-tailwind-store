@@ -1,6 +1,9 @@
+import Card from "../../Componets/Card"
+
 function Home() {
     return (
-      <div className='bg-red-200'>
+      <div>
+        <Card />
         Hola mundo
       </div>
     )
