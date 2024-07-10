@@ -7,6 +7,7 @@ import NotFound from "../NotFound"
 import SignIn from "../SignIn"
 import Navbar from '../../Componets/Navbar'
 import Layout from '../../Componets/Layout'
+import { ShoppingCartProvider } from '../../Context'
 
 
 const AppRoutes = () => {
@@ -24,12 +25,14 @@ const AppRoutes = () => {
 
 function App() {
     return (
-        <BrowserRouter>
-            <Layout>
-                <AppRoutes />
-            </Layout>
-            <Navbar />
-        </BrowserRouter>
+        <ShoppingCartProvider>
+            <BrowserRouter>
+                <Layout>
+                    <AppRoutes />
+                </Layout>
+                <Navbar />
+            </BrowserRouter>
+        </ShoppingCartProvider>
     )
 }
 
