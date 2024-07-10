@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Card from "../../Componets/Card"
 import { apiUrl } from "../../api";
+import ProductDetail from "../../Componets/ProductDetail";
 
 function Home() {
   const [items, setItems] = useState(null);
@@ -19,7 +20,8 @@ function Home() {
   }, [])
 
   return (
-    <div>
+    <>
+      Home
       <section className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
         {
           items?.map(item => (
@@ -27,8 +29,8 @@ function Home() {
           ))
         }
       </section>
-
-    </div>
+      <ProductDetail />
+    </>
   )
 }
 
