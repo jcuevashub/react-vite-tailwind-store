@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Card from "../../Componets/Card"
 import { apiUrl } from "../../api";
 import ProductDetail from "../../Componets/ProductDetail";
+import CheckoutSideMenu from "../../Componets/CheckoutSideMenu";
 
 function Home() {
   const [items, setItems] = useState(null);
@@ -30,6 +31,7 @@ function Home() {
         }
       </section>
       <ProductDetail />
+
     </>
   )
 }

@@ -6,9 +6,8 @@ import OrderCard from '../OrderCard';
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
-    console.log( context.cartProducts)
     return (
-        <aside className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'}flex-col fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)]`}>
+        <aside className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} z-10 top-98 flex-col fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)]`}>
             <div className="flex justify-between items-center p-6">
                 <h2 className="font-medium text-xl">My Order</h2>
                 <div>
@@ -18,7 +17,7 @@ const CheckoutSideMenu = () => {
                     />
                 </div>
             </div>
-            <div className='px-6'>
+            <div className='px-6 overflow-y-scroll'>
             {
                 context.cartProducts.map(product => (
                     <OrderCard

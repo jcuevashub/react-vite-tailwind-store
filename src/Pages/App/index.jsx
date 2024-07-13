@@ -27,11 +27,12 @@ function App() {
     return (
         <ShoppingCartProvider>
             <BrowserRouter>
+            <Navbar />
+                <CheckoutSideMenu />
                 <Layout>
                     <AppRoutes />
-                    <CheckoutSideMenu />
                 </Layout>
-                <Navbar />
+        
             </BrowserRouter>
         </ShoppingCartProvider>
     )
