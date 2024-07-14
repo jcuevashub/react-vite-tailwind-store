@@ -6,7 +6,10 @@ import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 
 function MyOrder() {
     const context = useContext(ShoppingCartContext)
-
+    const currentPath = window.location.pathname
+    let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+    if (index === 'last') index = context.order?.length - 1
+    
     return (
         <>
             <div className="flex items-center justify-center w-80 mb-6">
@@ -17,7 +20,7 @@ function MyOrder() {
             </div>
             <div className='flex flex-col w-80'>
                 {
-                    context.order?.slice(-1)[0].products.map(product => (
+                    context.order?.[index]?.products.map(product => (
                         <OrderCard
                             key={product.id}
                             id={product.id}
