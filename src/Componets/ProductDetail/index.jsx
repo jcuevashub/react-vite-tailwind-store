@@ -3,7 +3,6 @@ import { ShoppingCartContext } from '../../Context'
 
 const ProductDetail = () => {
     const context = useContext(ShoppingCartContext)
-
     return (
         <aside className={`${context.isProductDetailOpen ? 'flex' : 'hidden'}  flex-col fixed right-0 border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)]`}>
             <div className="flex justify-between items-center p-6">
@@ -16,7 +15,7 @@ const ProductDetail = () => {
 
             </div>
             <figure className='px-6'>
-                <img className='w-full h-full rounded-lg' src={context.productToShow?.images} alt={context.productToShow.title} />
+                <img className='w-full h-full rounded-lg object-contain' src={context.productToShow?.image} alt={context.productToShow.title} />
             </figure>
             <p className='flex flex-col p-6'>
                 <span className='font-medium text-2xl mb-2'>${context.productToShow.price}</span>

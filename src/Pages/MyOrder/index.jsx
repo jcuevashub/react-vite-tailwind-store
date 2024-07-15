@@ -9,7 +9,7 @@ function MyOrder() {
     const currentPath = window.location.pathname
     let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
     if (index === 'last') index = context.order?.length - 1
-    
+
     return (
         <>
             <div className="flex items-center justify-center w-80 mb-6">
@@ -25,7 +25,7 @@ function MyOrder() {
                             key={product.id}
                             id={product.id}
                             title={product.title}
-                            imageUrl={product.images}
+                            imageUrl={product.image}
                             price={product.price}
                         />
                     ))
