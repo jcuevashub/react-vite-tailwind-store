@@ -2,7 +2,31 @@ import { createContext, useState, useEffect } from "react"
 import { apiUrl } from "../api";
 export const ShoppingCartContext = createContext()
 
+export const initializeLocalStorage = () => {
+    const acccountInLocalStorage = localStorage.getItem('account')
+    const signOutInLocalStorage = localStorage.getItem('sign-out')
+    let parsedAccount
+    let parsedSignOut
+
+    if(!acccountInLocalStorage) {
+        localStorage.setItem('account', JSON.stringify({}))
+        parsedAccount = {}
+    } else {
+        parsedAccount = JSON.parse(acccountInLocalStorage)
+    }
+
+    if (!signOutInLocalStorage) {
+        localStorage.setItem('sign-out', JSON.stringify(false))
+        parsedSignOut = false
+    } else {
+        parsedSignOut = JSON.parse(signOutInLocalStorage)
+    }
+}
+
 export const ShoppingCartProvider = ({ children }) => {
+    const [account, setAccount ] = useState({})
+    const [signOut, setSignOut] = useState(false)
+
     const [count, setCount] = useState(0)
 
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
@@ -94,7 +118,11 @@ export const ShoppingCartProvider = ({ children }) => {
             setSearchByTitle,
             filteredItems,
             searchByCategory,
-            setSearchByCategory
+            setSearchByCategory,
+            account,
+            setAccount,
+            signOut,
+            setSignOut
         }}>
             {children}
         </ShoppingCartContext.Provider>
