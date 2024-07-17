@@ -33,7 +33,7 @@ const Navbar = () => {
             return (
                 <>
                     <li className="text-black/60">
-                        jackson@example.com
+                        {parsedAccount?.email}
                     </li>
                     <li>
                         <NavLink to='/my-orders' className={({ isActive }) => isActive ? activeStyle : undefined}>
